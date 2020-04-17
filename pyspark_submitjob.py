@@ -7,12 +7,12 @@ livy_conn = livy.SparkLivySql(livy_host)
 
 spark_conf = {'spark.submit.deployMode': 'cluster', "spark.sql.autoBroadcastJoinThreshold": "4000000000", "spark.driver.memory":"12G", "spark.executor.cores":"2","spark.executor.memory":"12288M"}
 
-spark_args_dict = {'partition_list':"'2U','2I'"}
+spark_args_dict = {'dep_list':"'2U','2I'"}
 
 partition_dict = json.dumps(spark_args_dict)
 
 
-response = livy_conn.post_spark_job_submit(file="s3://aws-pyspark-job/livy_daf.py", args=[json.dumps(spark_args_dict)], conf=spark_conf)
+response = livy_conn.post_spark_job_submit(file="s3://aws-pyspark-job/livy_emp.py", args=[json.dumps(spark_args_dict)], conf=spark_conf)
 
 batch_id = response['id']
 batch_status = response['state']
