@@ -1,4 +1,4 @@
-###Pre-requisite
+### Pre-requisite
 A spark cluster with Apache Livy running. 
 The code in this repository has been tested on AWS EMR cluster for jobs which run from 30 min to 24 hrs.
 
