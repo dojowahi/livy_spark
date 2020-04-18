@@ -38,7 +38,7 @@ def submit_spark(**kwargs):
     spark_args_dict = {'extract_date': ext_dt}
 
     livy_client = livy.SparkLivySql(livy_url)
-    response = livy_client.post_spark_job_submit(file="s3://wahi-pyspark-jobs/livy_order.py",args=[json.dumps(spark_args_dict)],conf=spark_config)
+    response = livy_client.post_spark_job_submit(file="s3://wahi-pyspark-jobs/livy_order_airflow.py",args=[json.dumps(spark_args_dict)],conf=spark_config)
     batch_id = response['id']
     batch_status = response['state']
 
